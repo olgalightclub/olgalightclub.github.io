@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic Camp «Хроники Акаши» — Ольга Лайт</title>
+<meta name="description" content="Практический курс по развитию интуиции, внимания и восприятия информации. Ведёт Ольга Лайт.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #c9a84c; --gold2: #a0751a;
+  --silver: #a8b4c8; --white: #f0eff5;
+  --bg: #060914; --navy: #0f1d35; --violet: #2a1f4e;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: Georgia, 'Times New Roman', serif; line-height: 1.7; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 6vw; background: rgba(6,9,20,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,168,76,0.1); }
+.nav-logo { font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; }
+
+/* BUTTONS */
+.btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #060914; border: none; padding: 0.85rem 2rem; font-family: Arial, sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: transform .25s, box-shadow .25s; }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,.35); }
+.btn-outline { background: transparent; color: var(--silver); border: 1px solid rgba(168,180,200,.3); padding: 0.85rem 2rem; font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all .25s; }
+.btn-outline:hover { border-color: var(--silver); color: var(--white); }
+.btn-dark { background: rgba(42,31,78,.6); color: var(--gold); border: 1px solid rgba(201,168,76,.3); padding: 0.85rem 2rem; font-family: Arial, sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all .25s; }
+.btn-dark:hover { background: rgba(42,31,78,.9); border-color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes rot { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes rot2 { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(-360deg); } }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+/* HERO */
+#hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 6vw 6rem; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, #2a1f4e 0%, #0d1828 50%, #060914 100%); }
+#hero::before { content: ''; position: absolute; width: 560px; height: 560px; border-radius: 50%; border: 1px solid rgba(201,168,76,.1); top: 50%; left: 50%; animation: rot 28s linear infinite; }
+#hero::after { content: ''; position: absolute; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(201,168,76,.07); top: 50%; left: 50%; animation: rot2 20s linear infinite; }
+.hero-in { position: relative; z-index: 2; max-width: 800px; }
+.htag { display: inline-block; border: 1px solid rgba(201,168,76,.35); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 0.28rem 1rem; margin-bottom: 2rem; font-family: Arial, sans-serif; animation: fadeUp .7s ease both; }
+.h1 { font-size: clamp(3.8rem, 9vw, 7.5rem); font-weight: 300; line-height: 1.0; animation: fadeUp .7s .12s ease both; }
+.h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-family: Arial, sans-serif; font-size: 1rem; color: var(--silver); max-width: 500px; margin: 1.4rem auto 3rem; font-weight: 300; line-height: 1.6; animation: fadeUp .7s .24s ease both; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp .7s .36s ease both; }
+
+/* DIVIDER */
+.div { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,.2), transparent); margin: 0 6vw; }
+
+/* LAYOUT */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 6rem 6vw; }
+.wrap-sm { max-width: 800px; margin: 0 auto; padding: 6rem 6vw; }
+.lbl { font-family: Arial, sans-serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: block; }
+.h2 { font-size: clamp(1.9rem, 3.8vw, 3.2rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
+.h2 em { font-style: italic; color: var(--gold); }
+.gline { width: 48px; height: 1px; background: var(--gold); margin: 1.2rem 0; }
+.gline-c { margin: 1.2rem auto; }
+.txt { color: var(--silver); font-size: 0.96rem; line-height: 1.95; max-width: 600px; }
+.center { text-align: center; }
+.center .txt { margin: 0 auto; }
+
+/* ABOUT */
+.about-g { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.orb-w { display: flex; align-items: center; justify-content: center; position: relative; height: 340px; }
+.orb { width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(ellipse at 38% 35%, #3d2d70 0%, #0f1d35 55%, #060914 100%); box-shadow: 0 0 80px rgba(61,45,112,.45); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: rgba(201,168,76,.45); animation: floaty 8s ease-in-out infinite; }
+.ring { position: absolute; border-radius: 50%; border: 1px solid rgba(201,168,76,.1); top: 50%; left: 50%; }
+.r1 { width: 300px; height: 300px; animation: rot 22s linear infinite; }
+.r2 { width: 380px; height: 380px; animation: rot2 36s linear infinite; border-color: rgba(168,180,200,.07); }
+
+/* SKILLS */
+.skills-bg { background: linear-gradient(180deg, transparent, rgba(42,31,78,.1), transparent); }
+.sg { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; }
+.sc { background: rgba(15,29,53,.55); border: 1px solid rgba(201,168,76,.1); padding: 1.9rem; transition: border-color .3s, transform .3s; position: relative; overflow: hidden; }
+.sc::before { content: ''; position: absolute; top:0; left:0; width:3px; height:0; background: linear-gradient(180deg,var(--gold),transparent); transition: height .4s; }
+.sc:hover { border-color: rgba(201,168,76,.28); transform: translateY(-4px); }
+.sc:hover::before { height: 100%; }
+.sn { font-size: 2.3rem; font-weight: 300; color: rgba(201,168,76,.16); line-height: 1; margin-bottom: .7rem; }
+.st { font-family: Arial, sans-serif; font-size: .92rem; font-weight: 600; color: var(--white); margin-bottom: .3rem; }
+.sd { font-family: Arial, sans-serif; font-size: .82rem; color: var(--silver); }
+.struct { max-width: 660px; margin: 3.5rem auto 0; background: rgba(42,31,78,.16); border: 1px solid rgba(201,168,76,.14); padding: 2.4rem; text-align: center; }
+.struct p { font-size: 1.15rem; font-weight: 300; color: var(--silver); line-height: 1.85; }
+.struct strong { color: var(--gold); font-weight: 400; }
+.swarn { margin-top: 1.2rem; font-style: italic; color: var(--gold); font-size: 1.05rem; }
+
+/* FOR WHOM */
+.fw-g { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.tlist { list-style: none; margin-top: 2rem; }
+.tlist li { padding: .95rem 0; border-bottom: 1px solid rgba(201,168,76,.08); display: flex; gap: .9rem; align-items: flex-start; font-family: Arial, sans-serif; font-size: .92rem; color: var(--silver); }
+.tlist li::before { content: '◇'; color: var(--gold); font-size: .6rem; margin-top: .35rem; flex-shrink: 0; }
+
+/* FORMAT */
+.fmt-bg { background: linear-gradient(180deg, transparent, rgba(15,29,53,.35), transparent); }
+.fg { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px,1fr)); gap: 1.2rem; margin-top: 3rem; }
+.fc { text-align: center; padding: 2.2rem 1.4rem; background: rgba(11,17,32,.75); border: 1px solid rgba(168,180,200,.09); transition: border-color .3s; }
+.fc:hover { border-color: rgba(201,168,76,.22); }
+.fi { font-size: 1.9rem; margin-bottom: .8rem; display: block; }
+.ft { font-size: 1rem; color: var(--gold); margin-bottom: .4rem; font-weight: 300; }
+.fd { font-family: Arial, sans-serif; font-size: .8rem; color: var(--silver); }
+
+/* AUTHOR */
+.au-w { display: flex; gap: 3rem; align-items: flex-start; margin-top: 2rem; }
+.ava { flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #2a1f4e, #0f1d35); border: 2px solid rgba(201,168,76,.18); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: rgba(201,168,76,.38); }
+.au-name { font-size: 1.5rem; color: var(--white); margin-bottom: .3rem; font-weight: 400; }
+.au-title { font-family: Arial, sans-serif; font-size: .78rem; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; }
+.au-txt { color: var(--silver); font-size: .94rem; line-height: 1.95; max-width: 580px; }
+.au-txt p { margin-bottom: .85rem; }
+
+/* FAQ */
+.fl { margin-top: 2.8rem; }
+.fi2 { border-bottom: 1px solid rgba(168,180,200,.09); }
+.fq { width: 100%; background: none; border: none; color: var(--white); text-align: left; padding: 1.25rem 0; font-family: Arial, sans-serif; font-size: .93rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color .3s; }
+.fq:hover { color: var(--gold); }
+.fic { color: var(--gold); font-size: 1.2rem; transition: transform .3s; flex-shrink: 0; line-height: 1; }
+.fa { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.fa p { padding-bottom: 1.2rem; color: var(--silver); font-family: Arial, sans-serif; font-size: .88rem; line-height: 1.85; }
+.fi2.open .fa { max-height: 500px; }
+.fi2.open .fic { transform: rotate(45deg); }
+
+/* PAYMENT */
+#register { padding: 7rem 6vw; text-align: center; background: radial-gradient(ellipse at 50% 50%, rgba(42,31,78,.45) 0%, transparent 68%); }
+.cta-h { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 300; margin-bottom: 1.2rem; }
+.cta-h em { font-style: italic; color: var(--gold); }
+.pay-g { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 680px; margin: 2.8rem auto 0; }
+.pay-c { background: rgba(11,17,32,.8); border: 1px solid rgba(201,168,76,.18); padding: 2.5rem 1.8rem; text-align: center; transition: border-color .3s, transform .3s; }
+.pay-c:hover { border-color: rgba(201,168,76,.45); transform: translateY(-4px); }
+.pay-ico { font-size: 2.4rem; margin-bottom: 1rem; display: block; }
+.pay-t { font-size: 1.15rem; color: var(--gold); margin-bottom: .5rem; font-weight: 300; }
+.pay-d { font-family: Arial, sans-serif; font-size: .83rem; color: var(--silver); margin-bottom: 1.6rem; line-height: 1.65; }
+
+/* COMMUNITY */
+#community { padding: 5rem 6vw; text-align: center; border-top: 1px solid rgba(201,168,76,.08); }
+.comm-t { font-size: 1.6rem; font-weight: 300; margin-bottom: .8rem; }
+.comm-t em { font-style: italic; color: var(--gold); }
+.comm-d { font-family: Arial, sans-serif; font-size: .9rem; color: var(--silver); max-width: 440px; margin: 0 auto 2rem; line-height: 1.7; }
+
+/* FOOTER */
+footer { border-top: 1px solid rgba(201,168,76,.1); padding: 2.8rem 6vw; text-align: center; font-family: Arial, sans-serif; font-size: .8rem; color: rgba(168,180,200,.55); }
+.soc { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.soc a { color: rgba(168,180,200,.7); text-decoration: none; transition: color .3s; display: flex; align-items: center; gap: .5rem; font-size: .85rem; }
+.soc a:hover { color: var(--gold); }
+.soc svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 750px) {
+  .about-g, .fw-g { grid-template-columns: 1fr; gap: 3rem; }
+  .orb-w { order: -1; height: 260px; }
+  .orb { width: 180px; height: 180px; }
+  .r1 { width: 220px; height: 220px; }
+  .r2 { width: 280px; height: 280px; }
+  .au-w { flex-direction: column; align-items: center; text-align: center; }
+  .ava { margin: 0 auto; }
+  .au-txt { text-align: left; }
+  .pay-g { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">✦ Magic Camp</a>
+  <a href="https://forms.gle/2PTBgkmN1LbNsMTVA" target="_blank" class="btn-gold" style="padding:.55rem 1.4rem;font-size:.72rem;">Записаться</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-in">
+    <div class="htag">Magic Camp · Уровень I</div>
+    <div class="h1">Хроники<br><em>Акаши</em></div>
+    <p class="hero-sub">Практический курс по развитию интуиции,<br>внимания и восприятия информации</p>
+    <div class="hero-btns">
+      <a href="https://forms.gle/2PTBgkmN1LbNsMTVA" target="_blank" class="btn-gold">Зарегистрироваться на Camp</a>
+      <a href="#about" class="btn-outline">Узнать подробнее</a>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ABOUT -->
+<div id="about" class="wrap">
+  <div class="about-g">
+    <div>
+      <span class="lbl">О курсе</span>
+      <div class="h2">Ваш путь к <em>сверхспособностям</em></div>
+      <div class="gline"></div>
+      <p class="txt">Хроники Акаши — это метафора информационного поля, которое доступно каждому, кто научился его воспринимать. Не теория. Не медитация ради медитации.</p>
+      <br>
+      <p class="txt">Это практический навык — такой же, как умение слушать или читать. Просто большинство людей никогда не учились им осознанно пользоваться.</p>
+      <br>
+      <p class="txt">Курс даёт конкретные инструменты: как войти в нужное состояние, как задавать вопросы, как отличать истинный сигнал от тревоги — и как безопасно с этим работать.</p>
+    </div>
+    <div class="orb-w">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="orb">✦</div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- LEVEL 1 -->
+<section class="skills-bg">
+  <div class="wrap center" style="padding-bottom:0;">
+    <span class="lbl">Программа</span>
+    <div class="h2">Первый уровень — <em>База</em><br>Фундамент ваших сверхспособностей</div>
+    <div class="gline gline-c"></div>
+    <p class="txt">Первый уровень — это фундамент. Практика работы с вниманием, включение тела как основного инструмента и работа с состоянием.</p>
+  </div>
+  <div class="wrap" style="padding-top:2.5rem;padding-bottom:0;">
+    <div class="sg">
+      <div class="sc"><div class="sn">01</div><div class="st">Управление вниманием</div><div class="sd">Собирать и удерживать внимание в нужном месте — базовый навык восприятия</div></div>
+      <div class="sc"><div class="sn">02</div><div class="st">Точка восприятия</div><div class="sd">Понять, где находится точка восприятия информации и как с ней работать</div></div>
+      <div class="sc"><div class="sn">03</div><div class="st">Точка сборки</div><div class="sd">Работать с точкой сборки и осознанно смещать её для доступа к информации</div></div>
+      <div class="sc"><div class="sn">04</div><div class="st">Телесный отклик</div><div class="sd">Чувствовать телесный отклик как реакцию на информацию — тело не лжёт</div></div>
+      <div class="sc"><div class="sn">05</div><div class="st">Различение сигналов</div><div class="sd">Отличать фантазию, тревогу и желание от истинного сигнала поля</div></div>
+      <div class="sc"><div class="sn">06</div><div class="st">Формулировка вопросов</div><div class="sd">Корректно формулировать вопросы — это определяет качество ответов</div></div>
+      <div class="sc"><div class="sn">07</div><div class="st">Техника безопасности</div><div class="sd">Входить в состояние и выходить из него безопасно и осознанно</div></div>
+    </div>
+    <div class="struct">
+      <p><strong>Шесть встреч</strong> — постепенная сборка навыка.<br><strong>Седьмая встреча</strong> — дополнительный Zoom для практики, разборов и вопросов.</p>
+      <div class="swarn">«Это база. Без неё идти дальше просто небезопасно и бессмысленно.»</div>
+    </div>
+  </div>
+  <div style="height:6rem;"></div>
+</section>
+
+<div class="div"></div>
+
+<!-- FOR WHOM -->
+<div class="wrap">
+  <div class="fw-g">
+    <div>
+      <span class="lbl">Для кого</span>
+      <div class="h2">Кому подойдёт<br><em>Magic Camp?</em></div>
+      <div class="gline"></div>
+      <p class="txt">Если вы стремитесь к глубокому самопознанию, хотите развить свою интуицию и научиться получать ответы из информационного поля — этот курс для вас.</p>
+    </div>
+    <div>
+      <ul class="tlist">
+        <li>Вы чувствуете, что у вас есть интуиция, но не можете ею управлять</li>
+        <li>Хотите принимать решения не только умом, но и на уровне глубинного знания</li>
+        <li>Интересуетесь медитацией, осознанностью, эзотерикой и готовы к практике</li>
+        <li>Хотите развить восприятие тонких сигналов и читать информационное поле</li>
+        <li>Готовы к внутренней работе и освоению новых навыков шаг за шагом</li>
+        <li>Ищете не теорию, а конкретный рабочий инструмент</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- FORMAT -->
+<section class="fmt-bg">
+  <div class="wrap center" style="padding-bottom:0;">
+    <span class="lbl">Формат</span>
+    <div class="h2">Как проходит <em>обучение?</em></div>
+  </div>
+  <div class="wrap" style="padding-top:0;">
+    <div class="fg">
+      <div class="fc"><span class="fi">🖥</span><div class="ft">Онлайн</div><div class="fd">Живые вебинары в удобное время</div></div>
+      <div class="fc"><span class="fi">⚡</span><div class="ft">7 встреч</div><div class="fd">6 основных + Zoom для практики</div></div>
+      <div class="fc"><span class="fi">🎯</span><div class="ft">Практика</div><div class="fd">Упражнения на каждом занятии</div></div>
+      <div class="fc"><span class="fi">📹</span><div class="ft">Записи</div><div class="fd">Все уроки доступны после занятий</div></div>
+      <div class="fc"><span class="fi">🤝</span><div class="ft">Поддержка</div><div class="fd">Сопровождение между занятиями</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- AUTHOR -->
+<div class="wrap">
+  <span class="lbl">Ведущий</span>
+  <div class="au-w">
+    <div class="ava">✦</div>
+    <div>
+      <div class="au-name">Ольга Лайт</div>
+      <div class="au-title">Предприниматель · Духовный учитель · Проводник</div>
+      <div class="gline"></div>
+      <div class="au-txt">
+        <p>Я предприниматель и духовный учитель. Больше 15 лет строю проекты, стратегии, системы роста. И параллельно всю жизнь исследую сознание.</p>
+        <p>Для меня это не два разных мира. Бизнес — это проявленное мышление. Сознание — его источник.</p>
+        <p>Я Проводник. Помогаю людям развивать чувствительность, интуицию и те способности, которые обычно спят, пока мы живём «на автомате».</p>
+        <p>На Кэмпе я не учу верить во что-то. Я создаю пространство, в котором вы начинаете слышать себя точнее. И когда сознание становится ясным — решения в жизни и в бизнесе тоже становятся ясными.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- FAQ -->
+<div class="wrap-sm">
+  <div class="center">
+    <span class="lbl">FAQ</span>
+    <div class="h2">Вопросы <em>и ответы</em></div>
+  </div>
+  <div class="fl">
+    <div class="fi2"><button class="fq">Это эзотерика?<span class="fic">+</span></button><div class="fa"><p>Если для вас эзотерика — это что-то оторванное от реальности, то нет. Мы работаем с вниманием, состоянием и восприятием. Всё очень практично. Просто глубже, чем обычно.</p></div></div>
+    <div class="fi2"><button class="fq">Нужна ли подготовка или «способности»?<span class="fic">+</span></button><div class="fa"><p>Нет. Способности уже есть. Мы не добавляем новое, мы убираем шум.</p></div></div>
+    <div class="fi2"><button class="fq">Будут ли какие-то «магические» практики?<span class="fic">+</span></button><div class="fa"><p>Конечно 😊 Будут практики работы с вниманием, телом и внутренней чувствительностью. Никакого давления. Вы всегда идёте в своём темпе.</p></div></div>
+    <div class="fi2"><button class="fq">Мне можно, если я рациональный человек?<span class="fic">+</span></button><div class="fa"><p>Особенно можно и нужно. Рациональность — это не противоположность чувствительности. Это её опора.</p></div></div>
+    <div class="fi2"><button class="fq">Что я получу в результате?<span class="fic">+</span></button><div class="fa"><p>Больше ясности. Точнее интуицию. Спокойнее решения. И ощущение, что вы наконец-то на своём месте.</p></div></div>
+    <div class="fi2"><button class="fq">Если я боюсь «слишком глубоко»?<span class="fic">+</span></button><div class="fa"><p>Вы не пойдёте глубже, чем готовы. Я веду аккуратно.</p></div></div>
+    <div class="fi2"><button class="fq">Вы работаете с Хрониками?<span class="fic">+</span></button><div class="fa"><p>Да. В Кэмпе я использую работу с Хрониками как инструмент доступа к более широкому уровню сознания.</p></div></div>
+    <div class="fi2"><button class="fq">Что такое Хроники в вашем понимании?<span class="fic">+</span></button><div class="fa"><p>Это не религия и не культ. Это способ входа в расширенное состояние восприятия, где становится доступна более глубокая информация о себе, своих сценариях и потенциале.</p></div></div>
+    <div class="fi2"><button class="fq">Это безопасно?<span class="fic">+</span></button><div class="fa"><p>Да. Работа проходит мягко, в сопровождении. Мы не «выходим из тела» и не делаем ничего экстремального. Это работа с вниманием и уровнем осознанности.</p></div></div>
+    <div class="fi2"><button class="fq">Мне нужно верить в это?<span class="fic">+</span></button><div class="fa"><p>Нет. Достаточно открытости и готовности наблюдать. Опыт всегда важнее веры.</p></div></div>
+    <div class="fi2"><button class="fq">Если я ничего не почувствую?<span class="fic">+</span></button><div class="fa"><p>У всех разная чувствительность. Кто-то ощущает тонко, кто-то — через ясность мыслей, инсайты или телесные реакции. Отсутствие «вау-эффекта» не означает, что процесс не идёт.</p></div></div>
+    <div class="fi2"><button class="fq">Это только про духовность?<span class="fic">+</span></button><div class="fa"><p>Нет. Работа с Хрониками часто даёт очень практичные результаты: ясность в решениях, понимание своих повторяющихся сценариев, спокойствие внутри.</p></div></div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- PAYMENT -->
+<section id="register">
+  <span class="lbl" style="display:block;">Начать путь</span>
+  <div class="cta-h">Готовы открыть свои<br><em>сверхспособности?</em></div>
+  <div class="gline gline-c"></div>
+  <p class="txt" style="margin:0 auto;text-align:center;">Выберите удобный способ участия</p>
+  <div class="pay-g">
+    <div class="pay-c">
+      <span class="pay-ico">💵</span>
+      <div class="pay-t">Оплата в долларах США</div>
+      <div class="pay-d">Регистрация и оплата онлайн. Мгновенное подтверждение участия.</div>
+      <a href="https://Olgalight4u.as.me/Akashi" target="_blank" class="btn-gold" style="width:100%;display:block;text-align:center;">Оплатить в $ →</a>
+    </div>
+    <div class="pay-c">
+      <span class="pay-ico">₽</span>
+      <div class="pay-t">Оплата в рублях</div>
+      <div class="pay-d">Заполните форму — мы пришлём реквизиты и инструкцию для оплаты из России.</div>
+      <a href="https://forms.gle/2PTBgkmN1LbNsMTVA" target="_blank" class="btn-dark" style="width:100%;display:block;text-align:center;">Заполнить форму →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <span class="lbl" style="display:block;">Сообщество</span>
+  <div class="comm-t">Присоединяйтесь к <em>LightStarClub</em></div>
+  <p class="comm-d">Сообщество людей, которые развивают сознание, интуицию и живут в потоке</p>
+  <a href="https://lightstarclub.mn.co/share/NGzmJQKuWHLRLMa_?utm_source=manual" target="_blank" class="btn-gold" style="margin-top:1.5rem;display:inline-block;">Присоединиться к сообществу LightStarClub →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="soc">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/spiritualupgrade4u" target="_blank" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+      Instagram
+    </a>
+    <!-- Telegram -->
+    <a href="https://t.me/spiritualupgrade4u" target="_blank" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.033 9.58c-.15.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.214-3.053 5.56-5.023c.241-.213-.054-.333-.373-.12L7.48 14.6l-2.95-.924c-.64-.2-.653-.64.137-.948l11.526-4.445c.538-.194 1.006.131.37.965z"/>
+      </svg>
+      Telegram
+    </a>
+    <!-- Email -->
+    <a href="mailto:ol@olgalightclub.com" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m2 7 10 7 10-7"/>
+      </svg>
+      ol@olgalightclub.com
+    </a>
+  </div>
+  <p>© 2025 Magic Camp «Хроники Акаши» · Ольга Лайт. Все права защищены.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.fq').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.fi2').forEach(function(i){ i.classList.remove('open'); });
+    if(!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
