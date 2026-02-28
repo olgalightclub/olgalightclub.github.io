@@ -1,0 +1,344 @@
+<style>
+#mc-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+#mc-wrap {
+  --gold: #c9a84c;
+  --silver: #a8b4c8;
+  --white: #f0eff5;
+  --violet: #2a1f4e;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #060914;
+  color: #f0eff5;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+#mc-hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 5vw; position: relative;
+  background: radial-gradient(ellipse at 50% 50%, #2a1f4e 0%, #0f1d35 45%, #060914 80%);
+  overflow: hidden;
+}
+#mc-hero::before {
+  content: ''; position: absolute;
+  width: 500px; height: 500px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.12);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation: mc-rotate 25s linear infinite;
+}
+#mc-hero::after {
+  content: ''; position: absolute;
+  width: 340px; height: 340px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.08);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation: mc-rotate 18s linear infinite reverse;
+}
+@keyframes mc-rotate {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes mc-float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+.mc-tag { display: inline-block; border: 1px solid rgba(201,168,76,0.4); color: #c9a84c; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.3rem 1rem; margin-bottom: 2rem; font-family: Arial, sans-serif; }
+.mc-h1 { font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; line-height: 1.05; margin-bottom: 0.3rem; }
+.mc-h1 em { font-style: italic; color: #c9a84c; }
+.mc-sub { font-family: Arial, sans-serif; font-size: 1rem; color: #a8b4c8; max-width: 520px; margin: 1.2rem auto 2.8rem; font-weight: 300; }
+.mc-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
+.mc-btn-main { background: linear-gradient(135deg, #c9a84c, #a0751a); color: #060914; border: none; padding: 0.95rem 2.4rem; font-family: Arial, sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.3s, box-shadow 0.3s; }
+.mc-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.4); }
+.mc-btn-sec { background: transparent; color: #a8b4c8; border: 1px solid rgba(168,180,200,0.35); padding: 0.95rem 2.4rem; font-family: Arial, sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
+.mc-btn-sec:hover { border-color: #a8b4c8; color: #f0eff5; }
+
+.mc-div { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent); margin: 0 5vw; }
+.mc-section { padding: 6rem 5vw; max-width: 1100px; margin: 0 auto; }
+.mc-label { font-family: Arial, sans-serif; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: #c9a84c; margin-bottom: 0.8rem; display: block; }
+.mc-h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.2; margin-bottom: 1rem; }
+.mc-h2 em { font-style: italic; color: #c9a84c; }
+.mc-line { width: 50px; height: 1px; background: #c9a84c; margin: 1.2rem 0; }
+.mc-p { color: #a8b4c8; font-size: 0.97rem; max-width: 620px; line-height: 1.9; }
+
+.mc-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; padding: 6rem 5vw; }
+.mc-orb-wrap { display: flex; align-items: center; justify-content: center; position: relative; height: 320px; }
+.mc-orb { width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(ellipse at 38% 35%, #3d2d70 0%, #0f1d35 55%, #060914 100%); box-shadow: 0 0 70px rgba(61,45,112,0.5); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: rgba(201,168,76,0.5); animation: mc-float 7s ease-in-out infinite; }
+.mc-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(201,168,76,0.12); }
+.mc-ring1 { width: 290px; height: 290px; animation: mc-rotate 22s linear infinite; }
+.mc-ring2 { width: 360px; height: 360px; animation: mc-rotate 34s linear infinite reverse; border-color: rgba(168,180,200,0.08); }
+
+#mc-level { background: linear-gradient(180deg, transparent, rgba(42,31,78,0.12), transparent); }
+.mc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.2rem; max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
+.mc-card { background: rgba(15,29,53,0.5); border: 1px solid rgba(201,168,76,0.1); padding: 1.8rem; transition: border-color 0.35s, transform 0.35s; position: relative; overflow: hidden; }
+.mc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: linear-gradient(180deg, #c9a84c, transparent); transition: height 0.4s; }
+.mc-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+.mc-card:hover::before { height: 100%; }
+.mc-num { font-size: 2.2rem; font-weight: 300; color: rgba(201,168,76,0.18); line-height: 1; margin-bottom: 0.7rem; }
+.mc-ct { font-family: Arial, sans-serif; font-size: 0.93rem; font-weight: 600; color: #f0eff5; margin-bottom: 0.3rem; }
+.mc-cd { font-family: Arial, sans-serif; font-size: 0.83rem; color: #a8b4c8; }
+.mc-struct { margin: 3.5rem auto 0; max-width: 700px; padding: 0 5vw; }
+.mc-struct-inner { background: rgba(42,31,78,0.18); border: 1px solid rgba(201,168,76,0.15); padding: 2.2rem; text-align: center; }
+.mc-struct-inner p { font-size: 1.2rem; font-weight: 300; color: #a8b4c8; line-height: 1.8; }
+.mc-struct-inner strong { color: #c9a84c; font-weight: 400; }
+.mc-warn { margin-top: 1.2rem; font-style: italic; color: #c9a84c; font-size: 1.05rem; }
+
+.mc-fw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.mc-list { list-style: none; margin-top: 1.8rem; }
+.mc-list li { padding: 1rem 0; border-bottom: 1px solid rgba(201,168,76,0.08); display: flex; gap: 0.8rem; align-items: flex-start; font-family: Arial, sans-serif; font-size: 0.92rem; color: #a8b4c8; }
+.mc-list li::before { content: '◇'; color: #c9a84c; font-size: 0.65rem; margin-top: 0.3rem; flex-shrink: 0; }
+
+#mc-format { background: linear-gradient(180deg, transparent, rgba(15,29,53,0.4), transparent); }
+.mc-fmt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 2.8rem; }
+.mc-fmt { text-align: center; padding: 2.2rem 1.2rem; background: rgba(11,17,32,0.7); border: 1px solid rgba(168,180,200,0.1); transition: border-color 0.3s; }
+.mc-fmt:hover { border-color: rgba(201,168,76,0.25); }
+.mc-fmt-ico { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+.mc-fmt-t { font-size: 1.05rem; color: #c9a84c; margin-bottom: 0.4rem; font-weight: 300; }
+.mc-fmt-d { font-family: Arial, sans-serif; font-size: 0.82rem; color: #a8b4c8; }
+
+.mc-author-wrap { display: flex; gap: 3rem; align-items: flex-start; }
+.mc-avatar { flex-shrink: 0; width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, #2a1f4e, #0f1d35); border: 2px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(201,168,76,0.4); }
+.mc-author-text p { color: #a8b4c8; font-size: 0.97rem; line-height: 1.9; margin-bottom: 0.8rem; }
+
+.mc-faq { margin-top: 2.5rem; }
+.mc-faq-item { border-bottom: 1px solid rgba(168,180,200,0.1); }
+.mc-faq-q { width: 100%; background: none; border: none; color: #f0eff5; text-align: left; padding: 1.3rem 0; font-family: Arial, sans-serif; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.3s; }
+.mc-faq-q:hover { color: #c9a84c; }
+.mc-faq-ico { color: #c9a84c; font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
+.mc-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.mc-faq-a p { padding-bottom: 1.3rem; color: #a8b4c8; font-family: Arial, sans-serif; font-size: 0.9rem; line-height: 1.8; }
+.mc-faq-item.open .mc-faq-a { max-height: 300px; }
+.mc-faq-item.open .mc-faq-ico { transform: rotate(45deg); }
+
+.mc-cta-h { font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 300; margin-bottom: 1.2rem; }
+.mc-cta-h em { font-style: italic; color: #c9a84c; }
+.mc-pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 2.5rem auto 0; }
+.mc-pay-card { background: rgba(15,29,53,0.6); border: 1px solid rgba(201,168,76,0.15); padding: 2.5rem 2rem; transition: border-color 0.3s, transform 0.3s; }
+.mc-pay-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); }
+.mc-pay-ico { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.mc-pay-title { font-size: 1.2rem; color: #c9a84c; margin-bottom: 0.8rem; font-weight: 300; }
+.mc-pay-desc { font-family: Arial, sans-serif; font-size: 0.88rem; color: #a8b4c8; line-height: 1.7; margin-bottom: 1.5rem; }
+
+#mc-footer { border-top: 1px solid rgba(201,168,76,0.1); padding: 2.5rem 5vw; text-align: center; font-family: Arial, sans-serif; font-size: 0.82rem; color: rgba(168,180,200,0.6); }
+.mc-contacts { display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.mc-contacts a { color: rgba(168,180,200,0.7); text-decoration: none; transition: color 0.3s; display: inline-flex; align-items: center; gap: 0.4rem; }
+.mc-contacts a:hover { color: #c9a84c; }
+
+@media (max-width: 720px) {
+  .mc-about-grid, .mc-fw-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .mc-author-wrap { flex-direction: column; }
+  .mc-orb-wrap { order: -1; height: 240px; }
+  .mc-orb { width: 170px; height: 170px; }
+  .mc-ring1 { width: 210px; height: 210px; }
+  .mc-ring2 { width: 265px; height: 265px; }
+  .mc-avatar { margin: 0 auto; }
+  .mc-pay-grid { grid-template-columns: 1fr; }
+}
+.mc-center { text-align: center; }
+.mc-center .mc-p { margin: 0 auto; }
+.mc-center .mc-line { margin: 1.2rem auto; }
+</style>
+
+<div id="mc-wrap">
+
+  <!-- HERO -->
+  <section id="mc-hero">
+    <div style="position:relative;z-index:2;">
+      <div class="mc-tag">Magic Camp · Уровень I</div>
+      <h1 class="mc-h1">Хроники<br><em>Акаши</em></h1>
+      <p class="mc-sub">Практический курс по развитию интуиции,<br>внимания и восприятия информации</p>
+      <div class="mc-btns">
+        <a href="https://forms.gle/2PTBgkmN1LbNsMTVA" target="_blank" class="mc-btn-main">Зарегистрироваться на Camp</a>
+        <a href="#mc-about" class="mc-btn-sec">Узнать подробнее</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- ABOUT -->
+  <div id="mc-about" class="mc-about-grid">
+    <div>
+      <span class="mc-label">О курсе</span>
+      <h2 class="mc-h2">Ваш путь к <em>сверхспособностям</em></h2>
+      <div class="mc-line"></div>
+      <p class="mc-p">Хроники Акаши — это метафора информационного поля, которое доступно каждому, кто научился его воспринимать. Не теория. Не медитация ради медитации.</p>
+      <br>
+      <p class="mc-p">Это практический навык — такой же, как умение слушать или читать. Просто большинство людей никогда не учились им осознанно пользоваться.</p>
+      <br>
+      <p class="mc-p">Курс даёт конкретные инструменты: как войти в нужное состояние, как задавать вопросы, как отличать истинный сигнал от тревоги — и как безопасно с этим работать.</p>
+    </div>
+    <div class="mc-orb-wrap">
+      <div class="mc-ring mc-ring1"></div>
+      <div class="mc-ring mc-ring2"></div>
+      <div class="mc-orb">✦</div>
+    </div>
+  </div>
+
+  <div class="mc-div"></div>
+
+  <!-- LEVEL 1 -->
+  <section id="mc-level" style="padding: 6rem 0;">
+    <div style="text-align:center;margin-bottom:3.5rem;padding:0 5vw;">
+      <span class="mc-label" style="display:block;text-align:center;">Программа</span>
+      <h2 class="mc-h2" style="text-align:center;">Первый уровень — <em>База</em><br>Фундамент ваших сверхспособностей</h2>
+      <div class="mc-line" style="margin:1.2rem auto;"></div>
+      <p class="mc-p" style="margin:0 auto;text-align:center;max-width:600px;">Первый уровень — это фундамент. Практика работы с вниманием, включение тела как основного инструмента и работа с состоянием.</p>
+    </div>
+    <div class="mc-grid">
+      <div class="mc-card"><div class="mc-num">01</div><div class="mc-ct">Управление вниманием</div><div class="mc-cd">Собирать и удерживать внимание в нужном месте — базовый навык восприятия</div></div>
+      <div class="mc-card"><div class="mc-num">02</div><div class="mc-ct">Точка восприятия</div><div class="mc-cd">Понять, где именно находится точка восприятия информации и как с ней работать</div></div>
+      <div class="mc-card"><div class="mc-num">03</div><div class="mc-ct">Точка сборки</div><div class="mc-cd">Работать с точкой сборки и осознанно смещать её для доступа к информации</div></div>
+      <div class="mc-card"><div class="mc-num">04</div><div class="mc-ct">Телесный отклик</div><div class="mc-cd">Чувствовать телесный отклик как реакцию на информацию — тело не лжёт</div></div>
+      <div class="mc-card"><div class="mc-num">05</div><div class="mc-ct">Различение сигналов</div><div class="mc-cd">Отличать фантазию, тревогу и желание от истинного сигнала поля</div></div>
+      <div class="mc-card"><div class="mc-num">06</div><div class="mc-ct">Формулировка вопросов</div><div class="mc-cd">Корректно формулировать вопросы — это определяет качество ответов</div></div>
+      <div class="mc-card"><div class="mc-num">07</div><div class="mc-ct">Техника безопасности</div><div class="mc-cd">Входить в состояние и выходить из него безопасно и осознанно</div></div>
+    </div>
+    <div class="mc-struct">
+      <div class="mc-struct-inner">
+        <p><strong>Шесть встреч</strong> — это постепенная сборка навыка.<br><strong>Седьмая встреча</strong> — дополнительный Zoom для практики, разборов и вопросов.</p>
+        <div class="mc-warn">«Это база. Без неё идти дальше просто небезопасно и бессмысленно.»</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- FOR WHOM -->
+  <section class="mc-section">
+    <div class="mc-fw-grid">
+      <div>
+        <span class="mc-label">Для кого</span>
+        <h2 class="mc-h2">Кому подойдёт<br><em>Magic Camp?</em></h2>
+        <div class="mc-line"></div>
+        <p class="mc-p">Если вы стремитесь к глубокому самопознанию, хотите развить свою интуицию и научиться получать ответы на важные вопросы из информационного поля — этот курс для вас.</p>
+      </div>
+      <div>
+        <ul class="mc-list">
+          <li>Вы чувствуете, что у вас есть интуиция, но не можете ею управлять</li>
+          <li>Хотите принимать решения не только умом, но и на уровне глубинного знания</li>
+          <li>Интересуетесь медитацией, осознанностью, эзотерикой и готовы к практике</li>
+          <li>Хотите развить восприятие тонких сигналов и читать информационное поле</li>
+          <li>Готовы к внутренней работе и освоению новых навыков шаг за шагом</li>
+          <li>Ищете не теорию, а конкретный рабочий инструмент</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- FORMAT -->
+  <section id="mc-format" style="padding:6rem 5vw;">
+    <div class="mc-center">
+      <span class="mc-label">Формат</span>
+      <h2 class="mc-h2">Как проходит <em>обучение?</em></h2>
+    </div>
+    <div class="mc-fmt-grid" style="max-width:1100px;margin:2.8rem auto 0;">
+      <div class="mc-fmt"><span class="mc-fmt-ico">🖥</span><div class="mc-fmt-t">Онлайн</div><div class="mc-fmt-d">Живые вебинары в удобное время</div></div>
+      <div class="mc-fmt"><span class="mc-fmt-ico">⚡</span><div class="mc-fmt-t">7 встреч</div><div class="mc-fmt-d">6 основных + Zoom для практики</div></div>
+      <div class="mc-fmt"><span class="mc-fmt-ico">🎯</span><div class="mc-fmt-t">Практика</div><div class="mc-fmt-d">Упражнения на каждом занятии</div></div>
+      <div class="mc-fmt"><span class="mc-fmt-ico">📹</span><div class="mc-fmt-t">Записи</div><div class="mc-fmt-d">Все уроки доступны после занятий</div></div>
+      <div class="mc-fmt"><span class="mc-fmt-ico">🤝</span><div class="mc-fmt-t">Поддержка</div><div class="mc-fmt-d">Сопровождение между занятиями</div></div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- AUTHOR -->
+  <section class="mc-section">
+    <span class="mc-label">Ведущий</span>
+    <div class="mc-author-wrap" style="margin-top:1.5rem;">
+      <div class="mc-avatar">✦</div>
+      <div class="mc-author-text">
+        <h2 class="mc-h2">Ольга <em>Лайт</em></h2>
+        <div class="mc-line"></div>
+        <p>Я предприниматель и духовный учитель. Больше 15 лет строю проекты, стратегии, системы роста. И параллельно всю жизнь исследую сознание.</p>
+        <p>Для меня это не два разных мира. Бизнес — это проявленное мышление. Сознание — его источник.</p>
+        <p>Я Проводник. Помогаю людям развивать чувствительность, интуицию и те способности, которые обычно спят, пока мы живём «на автомате».</p>
+        <p>На Кэмпе я не учу верить во что-то. Я создаю пространство, в котором вы начинаете слышать себя точнее. И когда сознание становится ясным — решения в жизни и в бизнесе тоже становятся ясными.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- FAQ -->
+  <section class="mc-section" style="max-width:800px;">
+    <div class="mc-center">
+      <span class="mc-label">FAQ</span>
+      <h2 class="mc-h2">Вопросы <em>и ответы</em></h2>
+    </div>
+    <div class="mc-faq">
+      <div class="mc-faq-item"><button class="mc-faq-q">Это эзотерика?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Если для вас эзотерика — это что-то оторванное от реальности, то нет. Мы работаем с вниманием, состоянием и восприятием. Всё очень практично. Просто глубже, чем обычно.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Нужна ли подготовка или «способности»?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Нет. Способности уже есть. Мы не добавляем новое, мы убираем шум.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Будут ли «магические» практики?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Конечно). Будут практики работы с вниманием, телом и внутренней чувствительностью. Никакого давления. Вы всегда идёте в своём темпе.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Мне можно, если я рациональный человек?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Особенно можно и нужно. Рациональность — это не противоположность чувствительности. Это её опора.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Что я получу в результате?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Больше ясности. Точнее интуицию. Спокойнее решения. И ощущение, что вы наконец-то на своём месте.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Если я боюсь «слишком глубоко»?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Вы не пойдёте глубже, чем готовы. Я веду аккуратно.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Вы работаете с Хрониками?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Да. В Кэмпе я использую работу с Хрониками как инструмент доступа к более широкому уровню сознания.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Что такое Хроники в вашем понимании?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Это не религия и не культ. Это способ входа в расширенное состояние восприятия, где становится доступна более глубокая информация о себе, своих сценариях и потенциале.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Это безопасно?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Да. Работа проходит мягко, в сопровождении. Мы не «выходим из тела» и не делаем ничего экстремального. Это работа с вниманием и уровнем осознанности.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Мне нужно верить в это?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Нет. Достаточно открытости и готовности наблюдать. Опыт всегда важнее веры.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Если я ничего не почувствую?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>У всех разная чувствительность. Кто-то ощущает тонко, кто-то — через ясность мыслей, инсайты или телесные реакции. Отсутствие «вау-эффекта» не означает, что процесс не идёт.</p></div></div>
+      <div class="mc-faq-item"><button class="mc-faq-q">Это только про духовность?<span class="mc-faq-ico">+</span></button><div class="mc-faq-a"><p>Нет. Работа с Хрониками часто даёт очень практичные результаты: ясность в решениях, понимание своих повторяющихся сценариев, спокойствие внутри.</p></div></div>
+    </div>
+  </section>
+
+  <div class="mc-div"></div>
+
+  <!-- PAYMENT -->
+  <section id="mc-register" style="padding:7rem 5vw;text-align:center;background:radial-gradient(ellipse at 50% 50%, rgba(42,31,78,0.5) 0%, transparent 65%);">
+    <span class="mc-label" style="display:block;">Начать путь</span>
+    <h2 class="mc-cta-h">Готовы открыть свои<br><em>сверхспособности?</em></h2>
+    <div class="mc-line" style="margin:1.2rem auto;"></div>
+    <p class="mc-p" style="margin:0 auto 2rem;text-align:center;">Заполните анкету участника и выберите удобный способ оплаты.</p>
+    <a href="https://forms.gle/2PTBgkmN1LbNsMTVA" target="_blank" class="mc-btn-main" style="display:inline-block;padding:1.1rem 3rem;font-size:0.9rem;margin-bottom:3rem;">Зарегистрироваться на Camp →</a>
+
+    <div class="mc-pay-grid">
+      <div class="mc-pay-card">
+        <span class="mc-pay-ico">💵</span>
+        <div class="mc-pay-title">Оплата в долларах США</div>
+        <div class="mc-pay-desc">Безопасная онлайн-оплата картой. Мгновенное подтверждение участия.</div>
+        <a href="#" class="mc-btn-main" style="display:block;padding:0.85rem;text-align:center;">Оплатить в $ →</a>
+      </div>
+      <div class="mc-pay-card">
+        <span class="mc-pay-ico">₽</span>
+        <div class="mc-pay-title">Оплата в рублях</div>
+        <div class="mc-pay-desc">Напишите нам — мы пришлём реквизиты и инструкцию для оплаты из России.</div>
+        <a href="mailto:info@olgalightclub.com?subject=Оплата в рублях — Magic Camp" class="mc-btn-sec" style="display:block;padding:0.85rem;text-align:center;">Написать на email →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="mc-footer">
+    <div class="mc-contacts">
+      <a href="https://www.instagram.com/spiritualupgrade4u" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://t.me/spiritualupgrade4u" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+      <a href="https://lightstarclub.mn.co/share/NGzmJQKuWHLRLMa_?utm_source=manual" target="_blank">✦ LightStarClub</a>
+      <a href="mailto:info@olgalightclub.com">✉ info@olgalightclub.com</a>
+    </div>
+    <p>© 2025 Magic Camp «Хроники Акаши» · Ольга Лайт. Все права защищены.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.mc-faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.mc-faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
